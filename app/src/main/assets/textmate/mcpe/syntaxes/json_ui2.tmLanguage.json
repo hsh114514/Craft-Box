@@ -1,0 +1,66 @@
+{
+  "name": "JSON a0.5",
+  "scopeName": "source.mcpe-ui2",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#numbers" },
+    { "include": "#strings" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.double-slash", "match": "//.*" },
+        { "name": "comment.block", "begin": "/\\*", "end": "\\*/" }
+      ]
+    },
+    "keywords": {
+      "name": "keyword.other",
+      "match": "\\b(true|false|null|off|on|yes|no)\\b"
+    },
+    "numbers": {
+      "name": "constant.numeric",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.member",
+          "match": "\"[.][a-zA-Z_][\\w\\-]*\""
+        },
+        {
+          "name": "string.quoted.double.variable",
+          "match": "\"[$][a-zA-Z_][\\w\\-]*\""
+        },
+        {
+          "name": "string.quoted.double.object",
+          "match": "\"[@][$]?[a-zA-Z_][\\w\\-]*\""
+        },
+        {
+          "name": "string.quoted.double.version",
+          "match": "\"\\d+(\\.\\d+)+\""
+        },
+        {
+          "name": "string.quoted.double.url",
+          "match": "\"(?:(?:https?|ftp|file):\\/\\/|\\/)[^\"\\s]*\""
+        },
+        {
+          "name": "string.quoted.double.generic",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [{ "include": "#escapes" }]
+        },
+        {
+          "name": "string.quoted.single",
+          "begin": "'",
+          "end": "'",
+          "patterns": [{ "include": "#escapes" }]
+        }
+      ]
+    },
+    "escapes": {
+      "name": "constant.character.escape",
+      "match": "\\\\([\"'\\\\btnfr]|u[0-9a-fA-F]{4}|[0-3]?[0-7]{1,2})"
+    }
+  }
+}

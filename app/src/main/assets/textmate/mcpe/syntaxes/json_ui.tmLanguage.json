@@ -1,0 +1,30 @@
+{
+  "name": "Minecraft UI JSON",
+  "scopeName": "source.mcpe-ui",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash.mcpe",
+      "match": "//.*"
+    },
+    {
+      "name": "entity.name.class.mcpe",
+      "match": "@\\$?[a-zA-Z_][\\w\\-]*"
+    },
+    {
+      "name": "variable.parameter.mcpe",
+      "match": "\\$[a-zA-Z_][\\w\\-]*"
+    },
+    {
+      "name": "constant.numeric.mcpe",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    {
+      "name": "keyword.control.mcpe",
+      "match": "\\b(true|false|null|off|on|yes|no)\\b"
+    },
+    {
+      "name": "string.quoted.double.mcpe",
+      "match": "\"[^\"]*\""
+    }
+  ]
+}

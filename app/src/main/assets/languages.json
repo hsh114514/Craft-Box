@@ -1,0 +1,16 @@
+{
+  "languages": [
+    {
+      "grammar": "textmate/mcpe/syntaxes/json_ui.tmLanguage.json",
+      "name": "mcpe-ui",
+      "scopeName": "source.mcpe-ui",
+      "languageConfiguration": "textmate/mcpe/language-configuration.json"
+    },
+    {
+      "grammar": "textmate/mcpe/syntaxes/json_ui2.tmLanguage.json",
+      "name": "mcpe-ui2",
+      "scopeName": "source.mcpe-ui2",
+      "languageConfiguration": "textmate/mcpe/language-configuration.json"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+<FrameLayout android:id="@+id/editor_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="#444"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="无画板,请点击右上角按钮创建"/>
+
+    <FrameLayout
+        android:id="@+id/pixel_editor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <com.google.android.material.floatingtoolbar.FloatingToolbarLayout
+        android:id="@+id/floating_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="48dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_load"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="选择文件"
+                app:icon="@drawable/file_image" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_undo"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="撤销"
+                app:icon="@drawable/undo_variant" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_edmode"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="切换模式"
+                app:icon="@drawable/ic_eye" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_tools"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="切换画笔"
+                app:icon="@drawable/spray" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_palette"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="颜色选择器"
+                app:icon="@drawable/palette" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_save"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="保存文件"
+                app:icon="@drawable/content_save" />
+        </LinearLayout>
+    </com.google.android.material.floatingtoolbar.FloatingToolbarLayout>
+
+
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Tips: 按住按钮可以查看功能介绍" />
+</FrameLayout>

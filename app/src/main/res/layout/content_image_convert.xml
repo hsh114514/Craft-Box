@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="16dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="TGA ↔ PNG 无损转换"
+			android:textSize="18sp"
+			android:layout_marginBottom="16dp"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="文件路径:"
+			android:layout_marginTop="8dp"
+			android:id="@+id/tv_input_label"/>
+
+		<EditText
+			android:id="@+id/et_input_path"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="/sdcard/example.tga"
+			android:background="@android:drawable/edit_text"
+			android:padding="12dp"
+			android:layout_marginTop="4dp"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="输出文件名（可选）:"
+			android:layout_marginTop="12dp"
+			android:id="@+id/tv_output_label"/>
+
+		<EditText
+			android:id="@+id/et_output_name"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="留空则使用原文件名"
+			android:background="@android:drawable/edit_text"
+			android:padding="12dp"
+			android:layout_marginTop="4dp"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginTop="24dp">
+
+			<Button
+				android:id="@+id/btn_tga_to_png"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="TGA → PNG"
+				android:padding="12dp"
+				android:layout_marginRight="8dp"/>
+
+			<Button
+				android:id="@+id/btn_png_to_tga"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="PNG → TGA"
+				android:padding="12dp"
+				android:layout_marginLeft="8dp"/>
+
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/tv_status"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="等待转换..."
+			android:padding="12dp"
+			android:layout_marginTop="16dp"
+			android:minHeight="80dp"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="使用说明:\n1. 输入完整文件路径\n2. 可选填写输出文件名\n3. 点击转换按钮\n\n输出目录: /sdcard/CraftBox/Converted/"
+			android:textSize="12sp"
+			android:padding="12dp"
+			android:layout_marginTop="16dp"
+			android:id="@+id/tv_usage"/>
+
+	</LinearLayout>
+
+</ScrollView>
+
