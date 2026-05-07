@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.preference)
     implementation(libs.scrimage.core)
     implementation(libs.scrimage.formats.extra)
+    implementation(libs.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
