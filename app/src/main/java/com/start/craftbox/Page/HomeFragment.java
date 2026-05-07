@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.start.craftbox.MainActivity;
 import com.start.craftbox.R;
+import com.start.craftbox.Tools.SPTool;
 
 public class HomeFragment extends Fragment {
     @Nullable
@@ -27,7 +29,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(root, savedInstanceState);
         ExtendedFloatingActionButton fab = root.findViewById(R.id.fab1);
         fab.setOnClickListener(view -> {
-            //Toast.makeText(getActivity(), "FAB Clicked", Toast.LENGTH_SHORT).show();
+            SPTool.saveBoolean(requireContext(), "isinit", false);
         });
     }
 }

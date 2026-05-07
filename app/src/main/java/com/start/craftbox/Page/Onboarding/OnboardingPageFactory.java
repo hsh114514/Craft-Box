@@ -3,7 +3,9 @@ package com.start.craftbox.Page.Onboarding;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.DrawableRes;
+
 import com.start.craftbox.R;
 
 public class OnboardingPageFactory {
@@ -23,5 +25,11 @@ public class OnboardingPageFactory {
 
     public static OnboardingPage createCustomPage(int layoutRes, OnboardingPage.PageBinder bindView) {
         return new OnboardingPage(layoutRes, bindView);
+    }
+    public static OnboardingPage createCustomPageWithCompletionCheck(
+            int layoutRes, 
+            OnboardingPage.PageBinder bindView,
+            OnboardingPage.CompletionChecker completionChecker) {
+        return new OnboardingPage(layoutRes, bindView, completionChecker);
     }
 }
