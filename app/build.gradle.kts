@@ -12,11 +12,15 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -30,6 +34,8 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
+        aidl = true
     }
 }
 
@@ -45,8 +51,6 @@ dependencies {
     implementation(libs.apksig)
     implementation(libs.eventbus)
     implementation(libs.preference)
-    implementation(libs.scrimage.core)
-    implementation(libs.scrimage.formats.extra)
     implementation(libs.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
@@ -56,4 +60,7 @@ dependencies {
     implementation(libs.language.textmate)
     implementation(libs.language.treesitter)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
+    implementation(libs.api)
+    implementation(libs.provider)
+    implementation(libs.lifecycle.extensions)
 }

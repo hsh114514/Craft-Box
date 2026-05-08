@@ -20,17 +20,16 @@ import com.start.craftbox.Page.Onboarding.OnboardingPageFactory;
 import com.start.craftbox.R;
 import com.start.craftbox.Tools.PermissionTool;
 import com.start.craftbox.Tools.SPTool;
+import com.start.craftbox.Tools.ShizukuTool;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class OnboardingActivity extends AppCompatActivity implements OnboardingPageBinder {
-
     private ViewPager2 viewPager;
     private FloatingActionButton btnNext;
     private LinearProgressIndicator progressIndicator;
-    
     private List<OnboardingPage> pages;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +56,12 @@ public class OnboardingActivity extends AppCompatActivity implements OnboardingP
                             MaterialButton btnRequestPermission = view.findViewById(R.id.btnRequestPermission);
                             if (btnRequestPermission != null) {
                                 btnRequestPermission.setOnClickListener(v -> {
-                                    if (PermissionTool.isStoragePermissionGranted(OnboardingActivity.this)) {
-                                        Snackbar.make(v, "已拥有权限", Snackbar.LENGTH_LONG).show();
-                                    }else {
-                                        PermissionTool.storePermission(OnboardingActivity.this);
-                                    }
+                                    ShizukuTool.getInstance(OnboardingActivity.this).getPermissions();
+//                                    if (PermissionTool.isStoragePermissionGranted(OnboardingActivity.this)) {
+//                                        Snackbar.make(v, "已拥有权限", Snackbar.LENGTH_LONG).show();
+//                                    }else {
+//                                        PermissionTool.storePermission(OnboardingActivity.this);
+//                                    }
                                 });
                             }
                         },

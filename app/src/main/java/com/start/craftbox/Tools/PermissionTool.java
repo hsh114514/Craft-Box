@@ -1,6 +1,7 @@
 package com.start.craftbox.Tools;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -94,7 +95,8 @@ public class PermissionTool {
         return context.checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED;
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+
+    @SuppressLint("InlinedApi")
     public static boolean checkNotificationPermission(Context context) {
         return ContextCompat.checkSelfPermission(
                 context,
@@ -102,7 +104,7 @@ public class PermissionTool {
         ) == PackageManager.PERMISSION_GRANTED;
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+
     public static boolean areAllPermissionsGranted(Context context) {
         return isStoragePermissionGranted(context) &&
                 isFloatingWindowPermissionGranted(context) &&

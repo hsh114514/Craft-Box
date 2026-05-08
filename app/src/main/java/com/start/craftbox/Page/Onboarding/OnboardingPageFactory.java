@@ -1,6 +1,5 @@
 package com.start.craftbox.Page.Onboarding;
 
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
