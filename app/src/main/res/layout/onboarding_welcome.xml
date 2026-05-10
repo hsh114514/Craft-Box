@@ -12,7 +12,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="80dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/security_24px"
+            android:src="@drawable/waving_hand_24px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
             android:layout_marginTop="32dp"
             android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
             android:textStyle="bold"
-            android:text="权限申请"
+            android:text="欢迎使用Craft Box"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/icon" />
@@ -37,7 +37,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:gravity="center"
-            android:text="使用Craft Box需要以下权限"
+            android:text="学习,编辑,测试您的 MinecraftPE 客户端 一切尽在Craft Box"
             android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             app:strokeWidth="0dp"
             app:cardElevation="2dp"
@@ -68,8 +68,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:src="@drawable/shizuku_svgrepo_com"
-                    app:tint="?attr/colorAccent" />
+                    app:tint="?attr/colorAccent"
+                    android:src="@drawable/menu_book_24px" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -81,23 +81,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Shizuku或Sui"
+                        android:text="图文教程"
                         android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="使用Shizuku进行静默安装,授权后将不需要手动授予其他权限(可选权限)"
+                        android:text="在线更新的开发图文教程,支持md语法"
                         android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
                 </LinearLayout>
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/shizuku_switch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"/>
 
             </LinearLayout>
 
@@ -129,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     app:tint="?attr/colorAccent"
-                    android:src="@drawable/folder_open_24px" />
+                    android:src="@drawable/healing" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -141,27 +135,76 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="存储权限"
+                        android:text="SO补丁管理"
                         android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="访问本地存储以读取,编辑和保存您的工程文件"
+                        android:text="方便快捷管理补丁,一键式修补SO"
                         android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
                 </LinearLayout>
 
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/storage_switch"
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="32dp"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:tint="?attr/colorAccent"
+                    android:src="@drawable/swap_horizontal_circle_24px" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="材质转换"
+                        android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="一键转换JE或BE材质包到Tga贴图集"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

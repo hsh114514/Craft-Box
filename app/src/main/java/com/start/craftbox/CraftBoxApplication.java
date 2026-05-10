@@ -3,12 +3,8 @@ package com.start.craftbox;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-
 import com.start.craftbox.Tools.ShizukuTool;
-
-import java.security.PublicKey;
 
 public class CraftBoxApplication extends Application {
     private static CraftBoxApplication instance;
