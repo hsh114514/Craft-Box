@@ -53,6 +53,9 @@ dependencies {
     implementation(libs.eventbus)
     implementation(libs.preference)
     implementation(libs.activity)
+    implementation(libs.annotation)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -64,4 +67,16 @@ dependencies {
     implementation(libs.api)
     implementation(libs.provider)
     implementation(libs.lifecycle.extensions)
+    implementation(libs.core)
+    implementation(libs.image)
+    implementation(libs.ext.tables)
+    implementation(libs.ext.strikethrough)
+    implementation(libs.ext.tasklist)
+    implementation(libs.syntax.highlight)
+    implementation(libs.okhttp)
+    implementation(libs.glide)
+}
+
+configurations.all {
+    exclude(group = "org.jetbrains", module = "annotations-java5")
 }

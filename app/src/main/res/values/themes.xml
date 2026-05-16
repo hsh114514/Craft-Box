@@ -65,4 +65,10 @@
         <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
         <item name="fullscreenTextColor">@color/light_blue_A200</item>
     </style>
+
+    <style name="Theme.CraftBox.Fullscreen" parent="Theme.CraftBox">
+        <item name="android:actionBarStyle">@style/Widget.Theme.CraftBox.ActionBar.Fullscreen</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
 </resources>

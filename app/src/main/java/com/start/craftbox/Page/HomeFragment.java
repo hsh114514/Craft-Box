@@ -1,5 +1,7 @@
 package com.start.craftbox.Page;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +11,10 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.start.craftbox.Activitys.MdInfoActivaty;
 import com.start.craftbox.MainActivity;
 import com.start.craftbox.R;
 import com.start.craftbox.Tools.SPTool;
@@ -28,8 +33,21 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
         ExtendedFloatingActionButton fab = root.findViewById(R.id.fab1);
+        MaterialCardView card = root.findViewById(R.id.card1);
         fab.setOnClickListener(view -> {
             SPTool.saveBoolean(requireContext(), "isinit", false);
         });
+
+        card.setOnClickListener(view -> {
+            startActivity(new MdInfoActivaty());
+        });
+
+
+
+    }
+
+    private void startActivity(Activity newactivity) {
+        Intent intent = new Intent(requireActivity(), newactivity.getClass());
+        startActivity(intent);
     }
 }

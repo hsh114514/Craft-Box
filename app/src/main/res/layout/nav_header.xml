@@ -1,29 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/colorPrimary"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="20dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/nav_user_avatar"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/circleImageStyle"
         android:src="@mipmap/ic_launcher_round" />
 
     <TextView
+        android:id="@+id/nav_user_nickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:text="Craft Box"
+        android:paddingTop="12dp"
+        android:text="未登录 点击头像登录"
+        android:textSize="18sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="v1.0.0" />
+        android:orientation="horizontal"
+        android:alpha="0.8">
+
+        <TextView
+            android:id="@+id/nav_user_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lv.1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" | "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/nav_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID: ---"
+            android:textSize="12sp" />
+    </LinearLayout>
 
 </LinearLayout>
