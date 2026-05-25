@@ -12,8 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.start.craftbox.Activitys.FileManagerActivity;
 import com.start.craftbox.Activitys.MdInfoActivaty;
 import com.start.craftbox.MainActivity;
 import com.start.craftbox.R;
@@ -32,11 +34,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
-        ExtendedFloatingActionButton fab = root.findViewById(R.id.fab1);
         MaterialCardView card = root.findViewById(R.id.card1);
-        fab.setOnClickListener(view -> {
-            SPTool.saveBoolean(requireContext(), "isinit", false);
-        });
 
         card.setOnClickListener(view -> {
             startActivity(new MdInfoActivaty());

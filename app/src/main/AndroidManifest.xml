@@ -29,6 +29,12 @@
         android:theme="@style/Theme.CraftBox"
         tools:ignore="HardcodedDebugMode">
         <activity
+            android:name=".Activitys.FileManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.UserActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activitys.RegisterActivity"
             android:exported="false" />
         <activity

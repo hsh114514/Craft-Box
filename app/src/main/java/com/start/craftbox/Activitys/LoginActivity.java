@@ -134,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                                         .setLevel(loginResponse.data.level)
                                         .setExp(loginResponse.data.exp)
                                         .setRole(loginResponse.data.role)
+                                        .setBio(loginResponse.data.bio)
                                         .setAvatar_path(loginResponse.data.avatar_url);
                                 //Log.d("LoginActivity", user.toString());
                                 user.save(context);
@@ -184,6 +185,7 @@ public class LoginActivity extends AppCompatActivity {
             public int level;
             public int exp;
             public int role;
+            public String bio;
             public String avatar_url;
         }
     }

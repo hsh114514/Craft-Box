@@ -24,10 +24,12 @@ import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.start.craftbox.Activitys.LoginActivity;
+import com.start.craftbox.Activitys.UserActivity;
 import com.start.craftbox.Entity.User;
 import com.start.craftbox.Network.HttpUtils;
 import com.start.craftbox.Page.AboutFragment;
 import com.start.craftbox.Page.CodeEditorFragment;
+import com.start.craftbox.Page.DebugFragment;
 import com.start.craftbox.Page.HistoryFragment;
 import com.start.craftbox.Page.HomeFragment;
 import com.start.craftbox.Page.PixelEditorFragment;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private Fragment homeFragment, aboutFragment, historyFragment, settingsFragment, pixelFragment, textureFragment, codeFragment;
+    private Fragment homeFragment, aboutFragment, historyFragment, settingsFragment, pixelFragment, textureFragment, codeFragment,debugFragment;
     ShapeableImageView profileImageView;
     TextView nicknameTextView;
     TextView levelTextView;
@@ -81,9 +83,11 @@ public class MainActivity extends AppCompatActivity {
         levelTextView = headerView.findViewById(R.id.nav_user_level);
         idTextView = headerView.findViewById(R.id.nav_user_id);
 
-
-        profileImageView.setOnClickListener(view -> startActivity(new LoginActivity()));
         User user = User.getCurrentUser(this);
+        profileImageView.setOnClickListener(view ->
+                startActivity(User.isLogin(this) ? new UserActivity() : new LoginActivity())
+        );
+
         if (User.isLogin(this)) {
             updateSidebarUI(user);
         }
@@ -98,7 +102,9 @@ public class MainActivity extends AppCompatActivity {
             } else if (id == R.id.nav_settings) {
                 replaceFragment(settingsFragment);
             } else if (id == R.id.nav_about) {
-                replaceFragment(codeFragment);
+                replaceFragment(aboutFragment);
+            } else if (id == R.id.nav_debug) {
+                replaceFragment(debugFragment);
             }
             drawerLayout.closeDrawers();
             return true;
@@ -120,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         if (pixelFragment == null) pixelFragment = new PixelEditorFragment();
         if (textureFragment == null) textureFragment = new TexturePackGeneratorFragment();
         if (codeFragment == null) codeFragment = new CodeEditorFragment();
+        if (debugFragment == null) debugFragment = new DebugFragment();
         replaceFragment(homeFragment);
     }
 
@@ -160,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setLevel(apiResponse.data.level)
                                 .setExp(apiResponse.data.exp)
                                 .setRole(apiResponse.data.role)
+                                .setBio(apiResponse.data.bio)
                                 .setAvatar_path(apiResponse.data.avatar_url);
                         newUser.save(MainActivity.this);
                         //Log.d("Login", newUser.toString());
@@ -170,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                             //showLoginPrompt();
                         });
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     Log.d("Login", e.getMessage());
                 }
 
@@ -183,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
         nicknameTextView.setText(user.getNickName());
         levelTextView.setText("Lv." + user.getLevel());
         idTextView.setText("ID:" + user.getId());
-        if (user.getAvatar_path() != null){
+        if (user.getAvatar_path() != null) {
             Glide.with(this)
                     .load(user.getAvatar_path())
                     .circleCrop()
