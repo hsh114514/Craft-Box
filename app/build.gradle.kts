@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.start.craftbox"
-    compileSdk = 36
+    compileSdk = 37
     defaultConfig {
         applicationId = "com.start.craftbox"
         minSdk = 24
@@ -21,10 +21,12 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -41,7 +43,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.appcompat)
+    implementation(libs.core.ktx)
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment)
@@ -75,6 +79,7 @@ dependencies {
     implementation(libs.syntax.highlight)
     implementation(libs.okhttp)
     implementation(libs.glide)
+    implementation(project(":startsetting"))
 }
 
 configurations.all {

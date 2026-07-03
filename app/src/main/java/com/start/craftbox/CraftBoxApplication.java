@@ -5,6 +5,7 @@ import android.app.Application;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.start.craftbox.Tools.ShizukuTool;
+import com.start.startsetting.SettingsManager;
 
 public class CraftBoxApplication extends Application {
     private static CraftBoxApplication instance;
@@ -12,6 +13,7 @@ public class CraftBoxApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        SettingsManager.initialize(this);
         ShizukuTool.getInstance(getInstance()).initShizuku();
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override

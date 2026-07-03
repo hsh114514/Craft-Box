@@ -1,12 +1,9 @@
 package com.start.craftbox.Entity.FileManager;
 
 import android.widget.TextView;
-
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.start.craftbox.R;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +15,7 @@ public class FilePanel {
     public FileAdapter adapter;
     public Toolbar toolbar;
     public List<FileItem> fileList = new ArrayList<>();
+
     public FilePanel(RecyclerView rv, Toolbar tb) {
         this.recyclerView = rv;
         this.toolbar = tb;
@@ -26,9 +24,12 @@ public class FilePanel {
     public void updateDir(File dir) {
         if (dir == null || !dir.exists() || !dir.isDirectory()) return;
         this.currentDir = dir;
+
         TextView tvPath = toolbar.findViewById(R.id.file_manager_toolbar_tv_path);
-        tvPath.setText(dir.getAbsolutePath());
-        //this.tvPath.setText(dir.getAbsolutePath());
+        if (tvPath != null) {
+            tvPath.setText(dir.getAbsolutePath());
+        }
+
         File[] files = dir.listFiles();
         fileList.clear();
         if (files != null) {
@@ -46,6 +47,8 @@ public class FilePanel {
                 }
             }
         }
-        adapter.notifyDataSetChanged();
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
     }
 }

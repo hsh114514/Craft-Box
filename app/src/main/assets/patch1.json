@@ -1,0 +1,38 @@
+{
+  "pack_name": "游戏视觉与渲染增强补丁包",
+  "author": "X_Modder",
+  "description": "专为固定版核心打造的视觉优化合集，包含解开游戏原生视距锁以及强制开启高帧率模式。",
+  "patches": [
+    {
+      "patch_id": "infinite_view",
+      "name": "解除原生视距限制",
+      "description": "强制突破游戏内最大 16 分块渲染锁定，允许通过配置文件直接加载至 32 分块，极大提升远景可视度。",
+      "enabled_by_default": false,
+      "nodes": [
+        {
+          "offset": "0x00A1B2C0",
+          "oldBytes": "1F2003D5",
+          "newBytes": "000080D2"
+        },
+        {
+          "offset": "0x00A1B2C4",
+          "oldBytes": "E0031FA2",
+          "newBytes": "1F2003D5"
+        }
+      ]
+    },
+    {
+      "patch_id": "unlock_fps",
+      "name": "解除 60 帧率渲染锁",
+      "description": "跳过游戏内对屏幕刷新率的动态检测，强制将核心渲染循环调整为不锁帧状态（适合 90Hz/120Hz 屏幕）。",
+      "enabled_by_default": false,
+      "nodes": [
+        {
+          "offset": "0x00C3D4E8",
+          "oldBytes": "A00180D2",
+          "newBytes": "200080D2"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "pack_name": "核心功能辅助开发测试包",
+  "author": "老白Reverse",
+  "description": "仅用于开发者在固定版本环境下测试工具箱卡片 UI 与 SO 字节覆写稳定性的辅助补丁集合。",
+  "patches": [
+    {
+      "patch_id": "xray_vision",
+      "name": "方块射线透视 (X-Ray)",
+      "description": "修改特定非透明方块在渲染管线中的不透明度参数，使其在特定视角下呈现半透明状态，从而实现透视矿石。",
+      "enabled_by_default": false,
+      "nodes": [
+        {
+          "offset": "0x015A2B3C",
+          "oldBytes": "FF0300D1",
+          "newBytes": "1F2003D5"
+        }
+      ]
+    },
+    {
+      "patch_id": "infinite_jump",
+      "name": "物理引擎凌空跃 (无限跳)",
+      "description": "修改玩家在空中的跳跃计数判定逻辑，使 `isGrounded`（是否着地）的检测返回值恒为真，从而实现无限空中跳跃。",
+      "enabled_by_default": false,
+      "nodes": [
+        {
+          "offset": "0x01B8C9D0",
+          "oldBytes": "08008052",
+          "newBytes": "1F2003D5"
+        }
+      ]
+    }
+  ]
+}

@@ -1,107 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/file_manager_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:baselineAligned="false"
     android:background="?attr/colorSurface"
     tools:context=".Activitys.FileManagerActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/file_manager_toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_collapseMode="pin"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/arrow_back_24px">
+        app:liftOnScroll="true">
 
-        <TextView
-            android:id="@+id/file_manager_toolbar_tv_path"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/file_manager_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="start"
-            android:text="Path"
-            android:singleLine="true"
-            android:padding="8dp"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall"/>
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/arrow_back_24px"
+            app:navigationIconTint="?attr/colorOnSurface">
 
-    </androidx.appcompat.widget.Toolbar>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:baselineAligned="false">
-
-        <LinearLayout
-            android:id="@+id/panel_left"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="?attr/colorSurfaceContainerLowest"
-            android:padding="4dp">
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_path_left"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ellipsize="start"-->
-<!--                android:singleLine="true"-->
-<!--                android:padding="8dp"-->
-<!--                android:textAppearance="@style/TextAppearance.Material3.BodySmall"-->
-<!--                android:background="?attr/colorSurfaceVariant"/>-->
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_file_left"
+            <TextView
+                android:id="@+id/file_manager_toolbar_tv_path"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:ellipsize="start"
+                android:paddingEnd="16dp"
+                android:singleLine="true"
+                android:text="Path"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:ignore="RtlSymmetry" />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="?attr/colorOutlineVariant" />
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
-            android:id="@+id/panel_right"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="?attr/colorSurfaceContainerLowest"
-            android:padding="4dp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_file_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/colorSurfaceContainerLowest"
+        android:cacheColorHint="?attr/colorSurfaceContainerLowest"
+        android:clipToPadding="false"
+        android:fadingEdgeLength="24dp"
+        android:requiresFadingEdge="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appbar_layout"
+        tools:listitem="@layout/item_file" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_path_right"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ellipsize="start"-->
-<!--                android:singleLine="true"-->
-<!--                android:padding="8dp"-->
-<!--                android:textAppearance="@style/TextAppearance.Material3.BodySmall"-->
-<!--                android:background="?attr/colorSurfaceVariant"/>-->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="菜单"
+        app:icon="@drawable/menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_file_right"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

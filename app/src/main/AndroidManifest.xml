@@ -18,7 +18,7 @@
         android:name=".CraftBoxApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
-        android:debuggable="true"
+        android:debuggable="false"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -45,6 +45,12 @@
             android:exported="false" />
         <activity
             android:name=".Activitys.MdInfoActivaty"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.PatchManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.PatchCreatorActivity"
             android:exported="false" />
         <activity
             android:name=".Activitys.OnboardingActivity"

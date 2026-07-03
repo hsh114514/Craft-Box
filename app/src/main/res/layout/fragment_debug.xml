@@ -43,6 +43,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dislogin_start" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/patch_manager_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="PatchManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cancle_init_start" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/patch_creater_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="PatchCreater"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/patch_manager_start" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

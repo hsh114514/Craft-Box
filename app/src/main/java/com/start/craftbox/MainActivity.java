@@ -33,6 +33,7 @@ import com.start.craftbox.Page.DebugFragment;
 import com.start.craftbox.Page.HistoryFragment;
 import com.start.craftbox.Page.HomeFragment;
 import com.start.craftbox.Page.PixelEditorFragment;
+import com.start.craftbox.Page.SettingFragment;
 import com.start.craftbox.Page.SettingsFragment;
 import com.start.craftbox.Page.TexturePackGeneratorFragment;
 import com.start.craftbox.databinding.ActivityMainBinding;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private Fragment homeFragment, aboutFragment, historyFragment, settingsFragment, pixelFragment, textureFragment, codeFragment,debugFragment;
+    private Fragment homeFragment, aboutFragment, historyFragment, settingFragment, pixelFragment, textureFragment, codeFragment,debugFragment;
     ShapeableImageView profileImageView;
     TextView nicknameTextView;
     TextView levelTextView;
@@ -84,14 +85,15 @@ public class MainActivity extends AppCompatActivity {
         idTextView = headerView.findViewById(R.id.nav_user_id);
 
         User user = User.getCurrentUser(this);
+        boolean isLogin = User.isLogin(this);
         profileImageView.setOnClickListener(view ->
-                startActivity(User.isLogin(this) ? new UserActivity() : new LoginActivity())
+                startActivity(isLogin ? new UserActivity() : new LoginActivity())
         );
 
         if (User.isLogin(this)) {
             updateSidebarUI(user);
+            performSilentLogin(user);
         }
-        performSilentLogin(user);
 
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (id == R.id.nav_history) {
                 replaceFragment(historyFragment);
             } else if (id == R.id.nav_settings) {
-                replaceFragment(settingsFragment);
+                replaceFragment(settingFragment);
             } else if (id == R.id.nav_about) {
                 replaceFragment(aboutFragment);
             } else if (id == R.id.nav_debug) {
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         if (homeFragment == null) homeFragment = new HomeFragment();
         if (aboutFragment == null) aboutFragment = new AboutFragment();
         if (historyFragment == null) historyFragment = new HistoryFragment();
-        if (settingsFragment == null) settingsFragment = new SettingsFragment();
+        if (settingFragment == null) settingFragment = new SettingFragment();
         if (pixelFragment == null) pixelFragment = new PixelEditorFragment();
         if (textureFragment == null) textureFragment = new TexturePackGeneratorFragment();
         if (codeFragment == null) codeFragment = new CodeEditorFragment();
@@ -140,6 +142,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void performSilentLogin(User user) {
+        if (user == null || user.getUserName() == null || user.getPassword() == null || 
+            user.getUserName().isEmpty() || user.getPassword().isEmpty()) {
+            Log.d("MainActivity", "Skip silent login: user credentials not available");
+            return;
+        }
+        
         FormBody formBody = new FormBody.Builder()
                 .add("username", user.getUserName())
                 .add("password", user.getPassword())
